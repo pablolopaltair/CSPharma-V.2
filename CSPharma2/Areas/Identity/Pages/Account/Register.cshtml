@@ -1,0 +1,81 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/CSPharmaFinal.styles.css" asp-append-version="true" />
+
+
+<a asp-area="" asp-controller="Home" asp-action="Index">
+    <img class="logoCSPharma mb-5" src="~/resources/logo.png" />
+</a>
+
+<div class="row">
+    <form class="col-lg-6 offset-lg-3 id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <h2 class="row justify-content-center mb-3" style="color: #5dc1b9 ">Alta</h2>
+        <div class="row justify-content-center">
+
+            <div class="mb-3 row justify-content-center">
+                <label asp-for="Input.Nombre" class="col-sm-2 col-form-label input-Login">Nombre</label>
+                <div class="col-sm-5">
+                    <input class="input-Login" asp-for="Input.Nombre" class="form-control" autocomplete="nombre" aria-required="true" />
+                    <br />
+                    <span asp-validation-for="Input.Nombre" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row justify-content-center">
+                <label asp-for="Input.Apellido" class="col-sm-2 col-form-label input-Login"></label>
+                <div class="col-sm-5">
+                    <input class="input-Login" asp-for="Input.Apellido" class="form-control" autocomplete="apellido" aria-required="true" />
+                    <br />
+                    <span asp-validation-for="Input.Apellido" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row justify-content-center">
+                <label asp-for="Input.Email" class="col-sm-2 col-form-label input-Login">E-mail:</label>
+                <div class="col-sm-5">
+                    <input class="input-Login" asp-for="Input.Email" autocomplete="username" aria-required="true" />
+                    <br />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row justify-content-center">
+                <label asp-for="Input.Password" class="col-sm-2 col-form-label input-Login">Nueva contraseña:</label>
+                <div class="col-sm-5">
+                    <input asp-for="Input.Password" class="input-Login" autocomplete="new-password" aria-required="true" />
+                    <br />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row justify-content-center">
+                <label class="col-sm-2 col-form-label input-Login" asp-for="Input.ConfirmPassword">Confirmar contraseña: </label>
+                <div class="col-sm-5">
+                    <input asp-for="Input.ConfirmPassword" class="input-Login" autocomplete="new-password" aria-required="true" />
+                    <br />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center">
+                <button id="registerSubmit" type="submit" class="btn-cspharma">Registrarse</button>
+                
+                
+            </div>
+
+        </div>
+    </form>
+
+
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
